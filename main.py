@@ -15,10 +15,13 @@ def img2text(url):
 
 
 def generate_story(text):
-    image_to_text =  pipeline("text-generation", model="Tincando/fiction_story_generator")
-    text = image_to_text(text)
-    print(text[0]['generated_text'])
-    return(text) 
+    image_to_text =  pipeline("text-generation", model="pranavpsv/genre-story-generator-v2")
+    text1 = image_to_text(text)
+    # print(text[0]['generated_text'])
+    return(text1) 
+
 scenrio = img2text('ishaque.jpg')
-scenrio[0]["generated_text"]
-generate_story(scenrio[0]["generated_text"])
+print(scenrio[0]["generated_text"])
+tx = scenrio[0]["generated_text"]
+st = generate_story(str(tx))
+print(st)
